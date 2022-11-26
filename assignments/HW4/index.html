@@ -1,0 +1,1158 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>HW04 Microservices - CMU 17-313: Foundations of Software Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#homework-4-microservices" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CMU 17-313: Foundations of Software Engineering" class="md-header__button md-logo" aria-label="CMU 17-313: Foundations of Software Engineering" data-md-component="logo">
+      
+  <img src="../../assets/images/17313_numberbox.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CMU 17-313: Foundations of Software Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HW04 Microservices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../syllabus/" class="md-tabs__link">
+      Syllabus
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../HW1/" class="md-tabs__link md-tabs__link--active">
+        Assignments
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../recitations/reci2-angularjs/" class="md-tabs__link">
+        Recitations
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CMU 17-313: Foundations of Software Engineering" class="md-nav__button md-logo" aria-label="CMU 17-313: Foundations of Software Engineering" data-md-component="logo">
+      
+  <img src="../../assets/images/17313_numberbox.png" alt="logo">
+
+    </a>
+    CMU 17-313: Foundations of Software Engineering
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Assignments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Assignments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Assignments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW1/" class="md-nav__link">
+        Homework 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW2/" class="md-nav__link">
+        Homework 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW3/" class="md-nav__link">
+        Homework 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Homework 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Homework 4
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    Learning Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-context" class="md-nav__link">
+    Project context
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starter-code-data-and-repository" class="md-nav__link">
+    Starter code, data, and repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deadlines-and-deliverables" class="md-nav__link">
+    Deadlines and deliverables
+  </a>
+  
+    <nav class="md-nav" aria-label="Deadlines and deliverables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-api-design-documentation-and-testing-due-tuesday-nov-1st-1159-pm-50-points" class="md-nav__link">
+    (1) API Design, Documentation, and Testing (due Tuesday, Nov 1st 11:59 PM) -- 50 points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-implementation-due-tuesday-nov-8th-2359-30-points" class="md-nav__link">
+    (2) Implementation (due Tuesday, Nov 8th, 23:59) -- 30 points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-architectural-design-document-due-tuesday-nov-8th-2359-50-points" class="md-nav__link">
+    (3) Architectural Design Document (due Tuesday, Nov 8th, 23:59) -- 50 points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ethical-discussion-due-thursday-nov-10th-2359-30-points" class="md-nav__link">
+    (4) Ethical Discussion (due Thursday, Nov 10th, 23:59) -- 30 points
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    Grading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-and-faq" class="md-nav__link">
+    Troubleshooting and FAQ
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting and FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cannot-install-pipenv" class="md-nav__link">
+    Cannot install pipenv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installed-pipenv-but-cannot-install-packages-from-pipenv" class="md-nav__link">
+    Installed pipenv, but cannot install packages from pipenv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installed-packages-but-doesnt-show-up-on-jupyter-notebook" class="md-nav__link">
+    Installed packages, but doesn't show up on jupyter notebook?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-ran-the-flask-app-but-404-errors-constantly-show-up" class="md-nav__link">
+    I ran the flask app, but 404 errors constantly show up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-test-endpoints-if-i-need-urls-to-call-them-will-gh-actions-work-with-the-localhost-url-and-endpoints" class="md-nav__link">
+    How can I test endpoints if I need URLs to call them? Will GH actions work with the localhost URL and endpoints?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW5/" class="md-nav__link">
+        Homework 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW6/" class="md-nav__link">
+        Homework 6
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Recitations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Recitations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Recitations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci2-angularjs/" class="md-nav__link">
+        Recitation 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci3-archaeology/" class="md-nav__link">
+        Recitation 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci4-dysfunction/" class="md-nav__link">
+        Recitation 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci6-midterm-review/" class="md-nav__link">
+        Recitation 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci7-machine-learning/" class="md-nav__link">
+        Recitation 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci8-static-analysis-ci/" class="md-nav__link">
+        Recitation 8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci9-open-source/" class="md-nav__link">
+        Recitation 9
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    Learning Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-context" class="md-nav__link">
+    Project context
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starter-code-data-and-repository" class="md-nav__link">
+    Starter code, data, and repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deadlines-and-deliverables" class="md-nav__link">
+    Deadlines and deliverables
+  </a>
+  
+    <nav class="md-nav" aria-label="Deadlines and deliverables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-api-design-documentation-and-testing-due-tuesday-nov-1st-1159-pm-50-points" class="md-nav__link">
+    (1) API Design, Documentation, and Testing (due Tuesday, Nov 1st 11:59 PM) -- 50 points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-implementation-due-tuesday-nov-8th-2359-30-points" class="md-nav__link">
+    (2) Implementation (due Tuesday, Nov 8th, 23:59) -- 30 points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-architectural-design-document-due-tuesday-nov-8th-2359-50-points" class="md-nav__link">
+    (3) Architectural Design Document (due Tuesday, Nov 8th, 23:59) -- 50 points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ethical-discussion-due-thursday-nov-10th-2359-30-points" class="md-nav__link">
+    (4) Ethical Discussion (due Thursday, Nov 10th, 23:59) -- 30 points
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    Grading
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-and-faq" class="md-nav__link">
+    Troubleshooting and FAQ
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting and FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cannot-install-pipenv" class="md-nav__link">
+    Cannot install pipenv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installed-pipenv-but-cannot-install-packages-from-pipenv" class="md-nav__link">
+    Installed pipenv, but cannot install packages from pipenv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installed-packages-but-doesnt-show-up-on-jupyter-notebook" class="md-nav__link">
+    Installed packages, but doesn't show up on jupyter notebook?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-ran-the-flask-app-but-404-errors-constantly-show-up" class="md-nav__link">
+    I ran the flask app, but 404 errors constantly show up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-test-endpoints-if-i-need-urls-to-call-them-will-gh-actions-work-with-the-localhost-url-and-endpoints" class="md-nav__link">
+    How can I test endpoints if I need URLs to call them? Will GH actions work with the localhost URL and endpoints?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="homework-4-microservices">Homework 4: Microservices</h1>
+<h2 id="learning-goals">Learning Goals</h2>
+<ul>
+<li>
+<p>Design, implement, and test a microservice.</p>
+</li>
+<li>
+<p>Decide whether and when to use microservices, understanding benefits and limitations.</p>
+</li>
+<li>
+<p>Write an effective design document.</p>
+</li>
+<li>
+<p>Assess and describe choices between alternative architectural designs.</p>
+</li>
+<li>
+<p>Engage meaningfully with questions of engineering ethics.</p>
+</li>
+</ul>
+<h2 id="project-context">Project context</h2>
+<p>You and your team are hard at work on the new graduate admissions system for CMU. During your most recent sprint planning meeting, your CMU technical contact bursts into the room, shouting, “Machine learning! Microservices!” When pressed, your newly buzzword-enamored boss explains: the population of applicants is too large, and increasing annually. Admissions is taking too much time and effort. Fortunately, CMU has been collecting student performance data. They continue: “Can’t your team make use of all that fancy new machine learning to help predict which applicants are more likely to succeed, helping the admissions process along? And since we’re checking off buzzwords, can’t you implement it as a microservice?”</p>
+<p>You are correctly skeptical about the effort required to pivot the product in this new direction, but fortunately the somewhat disconnected microservice demand gives you a way to explore the idea without requiring a major up front change in the existing codebase. Instead, you’ll (1) develop this potential feature in isolation by training a machine learning model that predicts potential applicant success and deploying it as a microservice, and then (2) reason about, document, and choose between alternative designs that would allow you to integrate it into the existing codebase. Finally, you will (3) individually consider the ethical implications of the feature, and what questions you truly need to ask in QA to satisfy possible ethical concerns.</p>
+<h2 id="starter-code-data-and-repository">Starter code, data, and repository</h2>
+<p>Create a new team repository using this <a href="https://classroom.github.com/a/dlSY38y3">repository</a> as a template.</p>
+<p>The starter code includes:</p>
+<ul>
+<li>an example Flask-based app in the <code>app/</code> directory. Use this as a template to build and deploy the microservice. You may wish to use <a href="https://towardsdatascience.com/a-flask-api-for-serving-scikit-learn-models-c8bcdaa41daa">this article</a> and <a href="https://github.com/amirziai/sklearnflask/">this repository</a> as resources on building and saving a scikit-learn model, and then deploying it using Flask. <strong>MAKE SURE</strong> to read the <code>README.MD</code> of the repository to learn about and use Pipenv, as it will allow for hassle-free collaboration.</li>
+<li>a default model under <code>app/</code>, which can be explored with the Jupyter notebook (<code>model_build.ipnyb</code>). You will need to create a better-performing model as a part of this homework.</li>
+</ul>
+<p>We provide you with a (synthetic) historical dataset (as a CSV file) of student performance (this is an augmented version of the dataset found <a href="https://archive.ics.uci.edu/ml/datasets/Student+Performance">here</a>), and a (bad) model trained over it. Start by exploring the data, to understand what information is available.
+Student performance is described by their grades (G1, G2, and G3), where G3 is the final year grade, the target performance metric.
+Grades are on a scale of 0-20; 20 is the best.
+CMU considers a high-quality student one with a G3 grade of 15 or higher.</p>
+<p>The existing model in the repository is very simple.
+Once you have familiarized yourself with the dataset, explore this model using whatever means you think are appropriate and determine in which ways you don’t believe it to be suitable. Based on what you learn in this exploratory step, you should train a new model and build a deployable microservice.</p>
+<p>You should evaluate your new model, and should explain how this model (overall) performs better than the baseline model, and any ways in which your model performs worse than the baseline model.</p>
+<p>Plan some testing, perform that testing on your microservice endpoints, and document it.
+You should create a test suite using, for example, <a href="https://flask.palletsprojects.com/en/2.2.x/testing">pytest</a>, and update your GitHub Actions workflow to run the test suite.</p>
+<p>This starter code uses arguments from the query string (specifically age, health, and absences) to query the model.
+This can/should be expanded or replaced as a part of your implementation (note that the API also accepts JSON requests).</p>
+<p>Note that the default Flask service in the starter code should be run, and is accessible, on port 80. Feel free to change as needed.</p>
+<h2 id="deadlines-and-deliverables">Deadlines and deliverables</h2>
+<p>This homework has three (3) deadlines and four (4) deliverables. The first deadline (Tuesday, November 1st) is a checkpoint to make sure you and your team are succeeding at building your microservice-based ML model. The second deadline (Tuesday, Nov 8th) is for the complete trained model deployable as a microservice, and a design document explaining how you would integrate the new feature into your existing codebase. The third deadline (Thursday, Nov 10th) is for one (1) individual document making an ethical argument about the feature.</p>
+<h3 id="1-api-design-documentation-and-testing-due-tuesday-nov-1st-1159-pm-50-points">(1) API Design, Documentation, and Testing (due Tuesday, Nov 1st 11:59 PM) -- 50 points</h3>
+<p>For this checkpoint, you and your team should make sure that all of you are working on the same versions of Python and Python packages.
+You should use <a href="https://swagger.io/docs">Swagger</a> to define and document the REST API for your microservice, and write a set of API tests that encode the expected functionality of your API (via <a href="https://flask.palletsprojects.com/en/2.2.x/testing">pytest</a>).
+Note that, for this deadline, the API does not need to be functional; it is only required that you create placeholder REST API endpoints that you can use to write your tests. <strong>NOTE: We expect your tests to be failing at this point. The implementation that allows the tests to pass will be written later.</strong></p>
+<p>The deliverable for this checkpoints are:</p>
+<ol>
+<li>a PDF and YAML version of your Swagger documentation. Note that you can create a PDF of your Swagger documentation via the Print Preview function of your browser.</li>
+<li>a set of API tests within your GitHub repository. Consider both expected behavior and edge cases.</li>
+</ol>
+<h3 id="2-implementation-due-tuesday-nov-8th-2359-30-points">(2) Implementation (due Tuesday, Nov 8th, 23:59) -- 30 points</h3>
+<p>The deliverable for this task is a documented technical artifact; submit a link of your GitHub repository to the Gradescope assignment. This should include:</p>
+<ol>
+<li>
+<p>a complete implementation that includes the API endpoints that you previously defined, and returns a prediction using your trained model.</p>
+</li>
+<li>
+<p>an updated README that clearly and concisely describes features used to training your model, and how your retrained the model performs better than the baseline model.</p>
+</li>
+</ol>
+<h3 id="3-architectural-design-document-due-tuesday-nov-8th-2359-50-points">(3) Architectural Design Document (due Tuesday, Nov 8th, 23:59) -- 50 points</h3>
+<p>Once you have demoed this feature, and shown that it can provide value, you are now faced with a decision about how to implement a long term solution here. You have at least several options including but not limited to:</p>
+<ol>
+<li>
+<p>Rewrite the feature in Java and incorporate it into the monolith</p>
+</li>
+<li>
+<p>Keep python demo microservice implementation, and deploy as a seperate service, integrating with your existing monolith via REST API</p>
+</li>
+<li>Refactor part or all of the existing monolith into a microservices based architecture</li>
+</ol>
+<p>Your deliverable for this part is a design document describing the feature and how it should be integrated into the system as a microservice. Submit this to the assignment on Gradescope. (NOTE: you will not have to actually implement this decision, for this or any subsequent homework in this class. You might consider implementation effort as part of your tradeoff analysis, but you should not let speculation about your workload in this class influence your decision.)</p>
+<p>The design document must (1) concisely describe the feature, (2) make and justify a decision on how the implementation should be done, including considered alternatives and tradeoffs, and using/referencing suitable diagrams where relevant to support your argument:</p>
+<ol>
+<li>
+<p>Feature description. This should be concise (&lt; 0.5 pages).</p>
+</li>
+<li>
+<p>Decision and architectural justification for how to integrate the feature into the system. This must include at least:</p>
+<ul>
+<li>
+<p>A concise, prioritized list of the overall quality requirements you considered in arguing for the integration of the feature into the system (&lt;0.5 pages, soft limit). You may consider and reference the requirements you elicited during HW3 as appropriate. Rank them in decreasing order of importance. This allows readers to quickly understand what requirements you were designing for.</p>
+</li>
+<li>
+<p>A design decision with a textual justification of your design. (~2 pages, soft limit, including alternatives and tradeoffs, below) Outline and argue for a particular implementation choice as to how the feature should be integrated into the overall system architecturally. Justify your design decisions, including why your design is adequate for the quality attributes important to this system, and what assumptions you made in your design.</p>
+</li>
+<li>
+<p>Considered alternatives and tradeoffs. The design decision and justification must include description of considered alternatives, the tradeoffs they present, and why they were rejected. Tradeoffs must involve (but are not limited to) quality attributes that will be affected by the alternative. Justify such arguments with reference to appropriate diagrams (this provides traceability) and concrete examples, as appropriate.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>On diagrams. The design document must include both diagrams and text. Diagrams should involve suitable architectural views; must include a legend; and should involve appropriate levels of abstraction for the components in the diagram. If necessary, use color/shape/text to differentiate between types of components and connectors. You may find it appropriate to merge more than one view into a single diagram. If you do this, you must be explicit about what views you are merging, and why. Otherwise, diagrams should clearly represent legitimate architectural views. Make sure that multiple views of the architecture are consistent with each other and the links are clear; if necessary provide a mapping in additional text.</p>
+<p><a href="https://resources.sei.cmu.edu/library/asset-view.cfm?assetid=30386">Documenting Software Architectures: Views and Beyond, Second Edition</a> is a useful book on creating architecture documentation. It is available (for free) as an e-book from the CMU library web site. If you use it, treat it as reference material; do not plan to read major parts of it.</p>
+<p>Drawing diagrams is easier with the right software. Consider tools like draw.io (free, online, and collaborative), Dia, OmniGraffle, MS Visio, or even just the drawing editor of Google Docs. Google Slides will also likely work for this purpose. Pictures of whiteboard drawings are also acceptable, if clearly readable.</p>
+<p>Additional Hints:</p>
+<ul>
+<li>
+<p>The design document task is easy to underestimate both in terms of time needed and in terms of difficulty designing meaningful and useful descriptions. While it is easy to create a superficial solution, a good solution will likely require significant thinking, discussion, and iteration. Feel free to seek feedback from the course staff on your solution before submission.</p>
+</li>
+<li>
+<p>It may take several iterations to get your architectural views right. Appoint someone to track the accuracy and completeness of architectural representations throughout this assignment. Do not just divide up the views among your team members and assume they show everything needed. You only need to submit the final designs/documents, not intermediate steps on the process of getting there.</p>
+</li>
+<li>
+<p>As additional reference material, <a href="https://resources.sei.cmu.edu/library/asset-view.cfm?assetid=30264">Software Architecture in Practice, Third Edition</a> is a book on software architecture that is available (for free) as an e-book from the CMU library web site. You may wish to review appropriate sections within Part Two to help find appropriate tactics, techniques you can use in your design to promote particular quality attributes. Note that the book is not a reading assignment and you should not try to read it thoroughly. Instead, use it as reference material and select particular bits of advice that are relevant to your situation.</p>
+</li>
+</ul>
+<h3 id="4-ethical-discussion-due-thursday-nov-10th-2359-30-points">(4) Ethical Discussion (due Thursday, Nov 10th, 23:59) -- 30 points</h3>
+<p><strong>This is an individual component.</strong></p>
+<p>Note: this is not an open-ended reflection document like those we have requested in previous assignments.
+You must engage with the ethical questions at hand.</p>
+<p>For this deliverable, we will ask you to think about potential ethical concerns with the technology that you are proposing to implement.
+You should consider the ethical implications from the perspective of all potential stakeholders.
+You might find it helpful to consider the questions we considered in class:</p>
+<ol>
+<li>
+<p>Does the software respect the humanity of the users?</p>
+</li>
+<li>
+<p>Does my software amplify positive behavior, or negative behavior for both users and society at large</p>
+</li>
+<li>
+<p>Could the software’s quality impact the humanity of others?</p>
+</li>
+</ol>
+<p>You should generate a list of potential ethical concerns for this system you are considering implementing.</p>
+<p>For each concern, you should assess the risk of that concern (Remember risk is how likely it is to happen, and how bad would the outcomes be).</p>
+<p>After assessing the risk, you should consider ways to address the ethical concern. For each concern, you should consider potential actions that could help address this concern, and safeguard against potential problems.</p>
+<p>The deliverable for this task is a document (soft limit 3 pages), submitted to Gradescope that:</p>
+<ul>
+<li>
+<p>Reasons about ethical concerns when implementing an ML feature to help decide which students to accept to CMU.</p>
+</li>
+<li>
+<p>An assessment of the risk for each ethical concern</p>
+</li>
+<li>
+<p>A discussion of how to address each ethical concern.</p>
+</li>
+<li>
+<p>A criteria that can be used to evaluate if the intervention described in part (c) is successful.</p>
+</li>
+</ul>
+<h2 id="grading">Grading</h2>
+<p>You will be graded as a team, with an individual component. This homework is worth 160 points. We will grade you based on the learning goals listed above.</p>
+<p>To receive full credit for the checkpoint, we expect:</p>
+<ul>
+<li>
+<p>That you have written Swagger Docs with reasonable API endpoints.</p>
+</li>
+<li>
+<p>That you have automated, runnable tests that exercise your API endpoints according to your Swagger Docs. Remember, they don't need to pass at the checkpoint, but they should pass by the end.</p>
+</li>
+</ul>
+<p>To receive full credit for the technical artifacts, we expect:</p>
+<ul>
+<li>
+<p>A working artifact that outperforms the baseline model</p>
+</li>
+<li>
+<p>A discussion of how the new model was evaluated, and some evidence that it outperforms the baseline model</p>
+</li>
+<li>
+<p>The checkpoint tests now passing with a correct implementation</p>
+</li>
+</ul>
+<p>To receive full credit on the design document, we expect:</p>
+<ul>
+<li>
+<p>A concise, accurate feature description.</p>
+</li>
+<li>
+<p>A list of the quality requirements you considered, ranked in decreasing order of importance.</p>
+</li>
+<li>
+<p>Appropriate use of at least two diagrams to support your design argument.</p>
+</li>
+<li>
+<p>A clear decision with an accurate description of how you think the feature should be integrated into the current system (diagrams and text). Someone else should be able to read this description and understand where to start, implementation-wise. Do not say only “If X, then I’d choose design #1; otherwise, I’d choose design #2.” In the real world, decisions must be made on the basis of incomplete information, with an understanding that sometimes the wrong decision gets made. You can say what information you wish you had in order to better-inform your decision.</p>
+</li>
+<li>
+<p>A good, substantive argument in favor of the design choice you made. This must include explicit description and consideration of alternatives, the substantiated (connected to quality attributes and other concerns) tradeoffs they afford, and reasons that you decided to reject them. These should be supported with technical arguments.</p>
+</li>
+<li>
+<p>A thorough discussion of the tradeoffs among the options. If there are any situations in which your choice was the wrong one, what would those situations look like, and how would you know (after the fact) that this was the case?</p>
+</li>
+</ul>
+<p>To receive full credit on the individual ethical reflection, we expect:</p>
+<ul>
+<li>
+<p>A discussion of ethical concerns that considers a wide variety of stakeholders</p>
+</li>
+<li>
+<p>That you can reason about potential ethical concerns before the emerge</p>
+</li>
+<li>
+<p>Thoughtful consideration of what it would take to address these concerns</p>
+</li>
+</ul>
+<h2 id="troubleshooting-and-faq">Troubleshooting and FAQ</h2>
+<h3 id="cannot-install-pipenv">Cannot install pipenv</h3>
+<p>Your python or pip installer might be outdated.</p>
+<ul>
+<li>Reinstall a specific version of python via homebrew. You would need homebrew. We recommend using homebrew.</li>
+</ul>
+<pre><code class="language-terminal">brew install python@3.8
+</code></pre>
+<ul>
+<li>Reinstall/update pip3</li>
+</ul>
+<pre><code class="language-terminal">python -m pip3 install --upgrade pip
+</code></pre>
+<p>OR</p>
+<pre><code class="language-terminal">pip3 install --upgrade pip
+</code></pre>
+<h3 id="installed-pipenv-but-cannot-install-packages-from-pipenv">Installed pipenv, but cannot install packages from pipenv</h3>
+<p>It might be that some packages are not installed. We have updated the starter code's <a href="https://github.com/CMU-313/fall-2022-hw4-starter-code/blob/master/Pipfile">pipfile here</a> (as of 10/31/2022), so that it explicilty indicates which version of which packages you need (otherwise pip would just used the version currently installed on your machine).</p>
+<p>You can just copy and paste the new Pipfile into your own, and <code>pipenv install</code> again</p>
+<h3 id="installed-packages-but-doesnt-show-up-on-jupyter-notebook">Installed packages, but doesn't show up on jupyter notebook?</h3>
+<p>It's probably that jupyter's python path isn't set properly in the kernel config file.
+The kernel needs to be created within the pipenv shell to pick up the right path.</p>
+<p><strong>Troubleshooting</strong></p>
+<ul>
+<li>Make sure <code>ipykernel</code> package is installed within your pipenv. If not, run</li>
+</ul>
+<pre><code class="language-terminal">pipenv install ipykernel
+</code></pre>
+<ul>
+<li>Enter the virtual shell via:</li>
+</ul>
+<pre><code class="language-terminal">pipenv shell
+</code></pre>
+<ul>
+<li>In the shell, create a new kernel via:</li>
+</ul>
+<pre><code class="language-terminal">python -m ipykernel install --user --name=my-virtualenv-name
+</code></pre>
+<p>where <code>my-virtualenv-name</code> can be the name of your kernel/venv name.</p>
+<ul>
+<li>Now, launch the jupyter notebook</li>
+</ul>
+<pre><code class="language-terminal">jupyter notebook
+</code></pre>
+<ul>
+<li>Finally, in your notebook, Kernel -&gt; Change Kernel. Your kernel should now be an option.</li>
+</ul>
+<p><a href="https://help.pythonanywhere.com/pages/IPythonNotebookVirtualenvs/">source: pythonanywhere.com</a></p>
+<h3 id="i-ran-the-flask-app-but-404-errors-constantly-show-up">I ran the flask app, but 404 errors constantly show up</h3>
+<ul>
+<li>Make sure you're starting your flask app within the <code>app</code> directory.</li>
+<li>At the return statement of your <code>/predict</code> endpoint, <code>np.asscalar</code> is actually outdated and does not work. This is a mistake on our part. You can get the same result using <code>np.ndarray.item</code>.</li>
+</ul>
+<h3 id="how-can-i-test-endpoints-if-i-need-urls-to-call-them-will-gh-actions-work-with-the-localhost-url-and-endpoints">How can I test endpoints if I need URLs to call them? Will GH actions work with the localhost URL and endpoints?</h3>
+<p>You don't need the url. You can search on google "pytest flask api post request" and get <a href="https://www.google.com/search?q=pytest+flask+api+post+request&amp;newwindow=1&amp;rlz=1C5CHFA_en&amp;sxsrf=ALiCzsZuCAW7O7loNqbMf4aZtkSyVpF3RA%3A1667269570737&amp;ei=woNgY5TCLMaq5NoPjf6S8AY&amp;ved=0ahUKEwiUq4iU94v7AhVGFVkFHQ2_BG4Q4dUDCBE&amp;uact=5&amp;oq=pytest+flask+api+post+request&amp;gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCCEQoAEyBQghEKABMgUIIRCgAToKCAAQRxDWBBCwAzoFCAAQkQI6BAgAEEM6DgguEIAEELEDEMcBENEDOhEILhCABBCxAxCDARDHARDRAzoLCAAQgAQQsQMQgwE6CwguEIAEELEDEIMBOgsILhCABBDHARDRAzoKCAAQsQMQgwEQQzoLCC4QgAQQxwEQrwE6CAguEIAEELEDOggIABCxAxCDAToFCAAQgAQ6CAgAEIAEELEDOg4ILhCABBDHARCvARDUAjoHCAAQgAQQCjoNCAAQgAQQsQMQgwEQCjoKCC4QgAQQsQMQCjoHCAAQgAQQDToRCC4QsQMQgwEQxwEQ0QMQkQI6CgguEMcBENEDEEM6EAguELEDEIMBEMcBENEDEEM6CwgAELEDEIMBEJECOhEILhCABBCxAxDHARDRAxDUAjoHCC4QsQMQQzoKCAAQgAQQsQMQCjoECC4QQzoFCC4QgAQ6CAguELEDEIMBOgcIABCxAxBDOgYIABAWEB46BQgAEIYDOgUIIRCrAjoICCEQFhAeEB1KBAhBGABKBAhGGABQwA1YoGVghWloCXABeAKAAZoBiAGyH5IBBDQwLjiYAQCgAQHIAQjAAQE&amp;sclient=gws-wiz-serp">these results</a>.</p>
+<p>Feel free to use any, but <a href="https://flask.palletsprojects.com/en/2.2.x/testing/">this resource</a> (first from the search result) seems to be helpful.</p>
+<p>You can also use the starter code for reference to see how the existing made a call to the client!</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1473 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>CMU 17-313: Foundations of Software Engineering - CMU 17-313: Foundations of Software Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/custom.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#foundations-of-software-engineering" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="CMU 17-313: Foundations of Software Engineering" class="md-header__button md-logo" aria-label="CMU 17-313: Foundations of Software Engineering" data-md-component="logo">
+      
+  <img src="assets/images/17313_numberbox.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CMU 17-313: Foundations of Software Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CMU 17-313: Foundations of Software Engineering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="." class="md-tabs__link md-tabs__link--active">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="syllabus/" class="md-tabs__link">
+      Syllabus
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="assignments/HW1/" class="md-tabs__link">
+        Assignments
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="recitations/reci2-angularjs/" class="md-tabs__link">
+        Recitations
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="CMU 17-313: Foundations of Software Engineering" class="md-nav__button md-logo" aria-label="CMU 17-313: Foundations of Software Engineering" data-md-component="logo">
+      
+  <img src="assets/images/17313_numberbox.png" alt="logo">
+
+    </a>
+    CMU 17-313: Foundations of Software Engineering
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Home
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overarching-questions" class="md-nav__link">
+    Overarching Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-calendar" class="md-nav__link">
+    Class Calendar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weekly-schedule" class="md-nav__link">
+    Weekly Schedule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#staff" class="md-nav__link">
+    Staff
+  </a>
+  
+    <nav class="md-nav" aria-label="Staff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instructors" class="md-nav__link">
+    Instructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teaching-assistants" class="md-nav__link">
+    Teaching Assistants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="syllabus/" class="md-nav__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Assignments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Assignments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Assignments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assignments/HW1/" class="md-nav__link">
+        Homework 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assignments/HW2/" class="md-nav__link">
+        Homework 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assignments/HW3/" class="md-nav__link">
+        Homework 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assignments/HW4/" class="md-nav__link">
+        Homework 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assignments/HW5/" class="md-nav__link">
+        Homework 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assignments/HW6/" class="md-nav__link">
+        Homework 6
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Recitations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Recitations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Recitations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recitations/reci2-angularjs/" class="md-nav__link">
+        Recitation 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recitations/reci3-archaeology/" class="md-nav__link">
+        Recitation 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recitations/reci4-dysfunction/" class="md-nav__link">
+        Recitation 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recitations/reci6-midterm-review/" class="md-nav__link">
+        Recitation 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recitations/reci7-machine-learning/" class="md-nav__link">
+        Recitation 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recitations/reci8-static-analysis-ci/" class="md-nav__link">
+        Recitation 8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recitations/reci9-open-source/" class="md-nav__link">
+        Recitation 9
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overarching-questions" class="md-nav__link">
+    Overarching Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-calendar" class="md-nav__link">
+    Class Calendar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weekly-schedule" class="md-nav__link">
+    Weekly Schedule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#staff" class="md-nav__link">
+    Staff
+  </a>
+  
+    <nav class="md-nav" aria-label="Staff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instructors" class="md-nav__link">
+    Instructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teaching-assistants" class="md-nav__link">
+    Teaching Assistants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="foundations-of-software-engineering">Foundations of Software Engineering</h1>
+<p>Previous versions of the course website: <a href="/2020">F20</a>, <a href="/2021">F21</a></p>
+<h2 id="overarching-questions">Overarching Questions</h2>
+<ul>
+<li>When is a program good enough to ship? Have you built what the customer wanted?</li>
+<li>Why (and how) does Netflix deliberately and randomly take down its own servers?</li>
+<li>What can we learn from the Boeing 737 disaster?</li>
+<li>How did Twitter eradicate the Fail Whale? And what does it have to do with Ruby?</li>
+<li>How do you get a patch accepted into an open-source project?</li>
+<li>You can write code. Can you build software?</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>Successful software projects require more than just technical expertise. Figuring out what the client wants, collaborating in a team, managing complexity, mitigating risks, staying on time and budget, and determining under various constraints when a product is good enough to be shipped are at least equally important topics that often have a significant human component. 17-313 explores these issues while broadly covering the fundamentals of modern software engineering.</p>
+<p>Assuming reasonably solid programming skills (including unit testing and code-level design), we will explore the following topics:</p>
+<ul>
+<li><strong>Process consideration for software development</strong><br />
+(How do avoid problems early? When and how much to design? When and how much to test? When and how to involve the customers? Agile methods...)</li>
+<li><strong>Requirements elicitation, documentation, and evaluation</strong><br />
+(How to figure out what the customer really wants? Who else has an interest? How can we measure success objectively? How can we reliably document expectations? ...)</li>
+<li><strong>Design for quality attributes</strong><br />
+(How can we design a system to be able to scale to millions of users? How can we design security into a system? ...)</li>
+<li><strong>Strategies for quality assurance,</strong> including measurement, inspection, and static and dynamic analysis<br />
+(What quality assurance strategy is best for a given system? What can we automate and when should we keep humans in the loop? How much testing and what kind of testing should we do? What qualities are important to assure beyond functional correctness? Can we evaluate usability, scalability, reliability, performance? How can we statically guarantee the absence of certain security issues? ...)</li>
+<li><strong>Empirical methods in software engineering</strong><br />
+(How can we measure quality attributes such as performance, security, and reliability? How can we measure how users interact with the system? How can we know whether the difference matters? ...)</li>
+<li><strong>Time and team management</strong><br />
+(How to estimate the duration and costs of a project? How to monitor progress and risks to recognize issues early? How to coordinate developers in a team? How to form and develop teams? How to select and motivate team members? How to deal with team dynamics such as social loafing? ...)</li>
+<li><strong>Economics of software development</strong><br />
+(Business models, outsourcing, open source, ...)</li>
+</ul>
+<p>This course has a strong technical focus, and includes assignments with and without programming. Many assignments will also have written components. Students will get experience with team management and modern software-engineering tools. The course puts students on a fast track toward project management positions. </p>
+<p><strong>Assignments</strong> (mostly done in groups) include:</p>
+<ul>
+<li>An <strong>introduction</strong> assignment where individual students will learn to engage with an existing code base.</li>
+<li>A <strong>requirements</strong> assignment in which each team will interview stakeholders to elicit and document requirements for a software system.</li>
+<li>An <strong>architecture</strong> assignment in which teams will train and deploy an ML model using microservices.</li>
+<li>A project in which each team <strong>contributes to an open source project</strong> of their choice. This involves identifying an issue in the existing project, understanding the development process of that project and how to contribute, and actually making a contribution such as fixing a bug or adding a feature. Extra credit will be awarded if the contribution is merged into the project.</li>
+</ul>
+<h2 id="class-calendar">Class Calendar</h2>
+<iframe src="https://calendar.google.com/calendar/embed?src=c_mfu3uiuq0fktl6tmvanaoejeeg%40group.calendar.google.com&ctz=America%2FNew_York&mode=WEEK" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+<h2 id="weekly-schedule">Weekly Schedule</h2>
+<div id="schedule">
+<!-- Loading in schedule from schedule.yaml -->
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Lecture</th>
+<th>Recitation</th>
+<th>Reading</th>
+<th>Homework Deadline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mon Aug 29</td>
+<td><td rowspan="5"> <strong>Git Collaboration</strong> <br> <strong class="label label-aqua"><a href="assets/pdfs/recitation1-slides.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .89-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5a2 2 0 0 0-2-2m-9 13V8l5 4"/></svg></span> Slides</a></strong> <strong class="label label-aqua"><a href="assets/pdfs/recitation1-handout.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12Z"/></svg></span> Handout</a></strong><strong class="label label-aqua"><a href="https://canvas.cmu.edu/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20h4V4h-4v16m-6 0h4v-8H4v8M16 9v11h4V9h-4Z"/></svg></span> Quiz</a></strong></td></td>
+<td><td rowspan="9"> <strong>Homework 1</strong> <br> Due Thurs Sep 9 @ 11:59pm <br> <strong class="label label-red"><a href="/assignments/hw1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12Z"/></svg></span> Handout</a></strong> </td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Aug 30</td>
+<td><strong class="label label-gold"><a href="assets/pdfs/01-introduction.pdf">Intro</a></strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Aug 31</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Sep 01</td>
+<td><strong class="label label-gold"><a href="assets/pdfs/02-measurement.pdf">Metrics and Measurement</a></strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Sep 02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Sep 05</td>
+<td><td rowspan="5"> <strong>Angular.js and MVC</strong> <br> <strong class="label label-aqua"><a href="https://docs.google.com/presentation/d/1bM_lgmx_W21AUGlWOvJRZdNhl3EhSA9AaU0fsQpNbqs/edit?usp=sharing"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .89-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5a2 2 0 0 0-2-2m-9 13V8l5 4"/></svg></span> Slides</a></strong> <strong class="label label-aqua"><a href="/recitations/2-angularjs"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12Z"/></svg></span> Handout</a></strong><strong class="label label-aqua"><a href="https://canvas.cmu.edu/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20h4V4h-4v16m-6 0h4v-8H4v8M16 9v11h4V9h-4Z"/></svg></span> Quiz</a></strong></td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Sep 06</td>
+<td><strong class="label label-gold"><a href="assets/pdfs/03-boeing-casestudy.pdf">Case Study 737MAX</a></strong></td>
+<td><strong class="label label-blue"><a href="https://www.seattletimes.com/business/boeing-aerospace/failed-certification-faa-missed-safety-issues-in-the-737-max-system-implicated-in-the-lion-air-crash/">News Article</a></strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Sep 07</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Sep 08</td>
+<td><strong class="label label-gold"><a href="assets/pdfs/04-code-archaeology.pdf">Code Archaeology</a></strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Sep 09</td>
+<td></td>
+<td><td rowspan="10"> <strong>Homework 2A</strong> <br> Due Thurs Sep 22 @ 11:59pm <br> <strong class="label label-red"><a href="/assignments/hw2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12Z"/></svg></span> Handout</a></strong> </td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Sep 12</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Sep 13</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Sep 14</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Sep 15</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Sep 16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Sep 19</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Sep 20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Sep 21</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Sep 22</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Sep 23</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Sep 26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Sep 27</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Sep 28</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Sep 29</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Sep 30</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Oct 03</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Oct 04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Oct 05</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Oct 06</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Oct 07</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Oct 10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Oct 11</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Oct 12</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Oct 13</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Oct 14</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Oct 17</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Oct 18</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Oct 19</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Oct 20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Oct 21</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Oct 24</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Oct 25</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Oct 26</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Oct 27</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Oct 28</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Oct 31</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Nov 01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Nov 02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Nov 03</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Nov 04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Nov 07</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Nov 08</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Nov 09</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Nov 10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Nov 11</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Nov 14</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Nov 15</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Nov 16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Nov 17</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Nov 18</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Nov 21</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Nov 22</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Nov 23</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Nov 24</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Nov 25</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Nov 28</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Nov 29</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Nov 30</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Dec 01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Dec 02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mon Dec 05</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue Dec 06</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed Dec 07</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu Dec 08</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri Dec 09</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="staff">Staff</h2>
+<h3 id="instructors">Instructors</h3>
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/chrisT.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="http://www.christimperley.co.uk/">Christopher Timperley</a></h3>
+        <p><a href="mailto:ctimperley@cmu.edu">ctimperley@cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/daye.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="None">Daye Nam</a></h3>
+        <p><a href="mailto:dayen@andrew.cmu.edu">dayen@andrew.cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/hilton.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="http://www.cs.cmu.edu/~mhilton/">Michael Hilton</a></h3>
+        <p><a href="mailto:mhilton@cmu.edu">mhilton@cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/rohan.jpeg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="https://rohan.padhye.org/">Rohan Padhye</a></h3>
+        <p><a href="mailto:rohanpadhye@cmu.edu">rohanpadhye@cmu.edu</a></p>
+    </div>
+</div>
+
+<h3 id="teaching-assistants">Teaching Assistants</h3>
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/Angela.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="None">Angela Zhang</a></h3>
+        <p><a href="mailto:angelaz1@andrew.cmu.edu">angelaz1@andrew.cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/anuda.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="None">Anuda Weerasinghe</a></h3>
+        <p><a href="mailto:wweerasi@andrew.cmu.edu">wweerasi@andrew.cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/Maggie.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="None">Maggie Huang</a></h3>
+        <p><a href="mailto:maggieh2@andrew.cmu.edu">maggieh2@andrew.cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/Mahima.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="None">Mahima Pannala</a></h3>
+        <p><a href="mailto:mpannala@andrew.cmu.edu">mpannala@andrew.cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/nimo.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="https://www.cs.cmu.edu/~woden/">Wode "Nimo" Ni</a></h3>
+        <p><a href="mailto:woden@cs.cmu.edu">woden@cs.cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/takho.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="None">Tak-Ho Lee</a></h3>
+        <p><a href="mailto:takhol@andrew.cmu.edu">takhol@andrew.cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/Victor.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="None">Victor Huang</a></h3>
+        <p><a href="mailto:hweiqivi@andrew.cmu.edu">hweiqivi@andrew.cmu.edu</a></p>
+    </div>
+</div>
+
+<div class="staffer"> 
+    <img class="staffer-image" src="/assets/images/VictorA.jpg" alt="">
+    <div>
+        <h3 class="staffer-name"> 
+        <a href="None">Victor Andres Alfonzo</a></h3>
+        <p><a href="mailto:vaa@andrew.cmu.edu">vaa@andrew.cmu.edu</a></p>
+    </div>
+</div>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.top", "navigation.tracking"], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>

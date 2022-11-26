@@ -1,0 +1,902 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>HW02 Learning the Codebase - CMU 17-313: Foundations of Software Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#homework-2-learning-the-codebase" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CMU 17-313: Foundations of Software Engineering" class="md-header__button md-logo" aria-label="CMU 17-313: Foundations of Software Engineering" data-md-component="logo">
+      
+  <img src="../../assets/images/17313_numberbox.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CMU 17-313: Foundations of Software Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HW02 Learning the Codebase
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../syllabus/" class="md-tabs__link">
+      Syllabus
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../HW1/" class="md-tabs__link md-tabs__link--active">
+        Assignments
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../recitations/reci2-angularjs/" class="md-tabs__link">
+        Recitations
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CMU 17-313: Foundations of Software Engineering" class="md-nav__button md-logo" aria-label="CMU 17-313: Foundations of Software Engineering" data-md-component="logo">
+      
+  <img src="../../assets/images/17313_numberbox.png" alt="logo">
+
+    </a>
+    CMU 17-313: Foundations of Software Engineering
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Assignments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Assignments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Assignments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW1/" class="md-nav__link">
+        Homework 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Homework 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Homework 2
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    Learning Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specification" class="md-nav__link">
+    Specification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-and-github-repository" class="md-nav__link">
+    Team and GitHub repository.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-description" class="md-nav__link">
+    Project Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deadlines-and-deliverables" class="md-nav__link">
+    Deadlines and deliverables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-team-due-thursday-sept-22-2359-20-points" class="md-nav__link">
+    Planning---Team (due Thursday, Sept 22, 23:59) -- 20 points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-team-due-thursday-sept-22-2359-80-points" class="md-nav__link">
+    Implementation:--Team (due Thursday, Sept 22, 23:59)  -- 80 points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-presentation-team-due-tuesday-sept-27-2359-presentation-uploaded-to-gradescope-30-points" class="md-nav__link">
+    Group Presentation:--Team (due Tuesday, Sept 27, 23:59, presentation uploaded to gradescope)  -- 30 points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#individual-reflection-team-due-tuesday-sept-27-2359-30-points" class="md-nav__link">
+    Individual Reflection:--Team (due Tuesday, Sept 27, 23:59)  -- 30 points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-credit-team-due-tuesday-sept-27-2359-8-pts-5-of-the-overall-assignment-grade" class="md-nav__link">
+    Extra credit:--Team (due Tuesday, Sept 27, 23:59)  -- 8 pts (5% of the overall assignment grade)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    Grading
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW3/" class="md-nav__link">
+        Homework 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW4/" class="md-nav__link">
+        Homework 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW5/" class="md-nav__link">
+        Homework 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW6/" class="md-nav__link">
+        Homework 6
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Recitations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Recitations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Recitations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci2-angularjs/" class="md-nav__link">
+        Recitation 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci3-archaeology/" class="md-nav__link">
+        Recitation 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci4-dysfunction/" class="md-nav__link">
+        Recitation 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci6-midterm-review/" class="md-nav__link">
+        Recitation 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci7-machine-learning/" class="md-nav__link">
+        Recitation 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci8-static-analysis-ci/" class="md-nav__link">
+        Recitation 8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci9-open-source/" class="md-nav__link">
+        Recitation 9
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    Learning Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specification" class="md-nav__link">
+    Specification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-and-github-repository" class="md-nav__link">
+    Team and GitHub repository.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-description" class="md-nav__link">
+    Project Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deadlines-and-deliverables" class="md-nav__link">
+    Deadlines and deliverables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-team-due-thursday-sept-22-2359-20-points" class="md-nav__link">
+    Planning---Team (due Thursday, Sept 22, 23:59) -- 20 points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-team-due-thursday-sept-22-2359-80-points" class="md-nav__link">
+    Implementation:--Team (due Thursday, Sept 22, 23:59)  -- 80 points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-presentation-team-due-tuesday-sept-27-2359-presentation-uploaded-to-gradescope-30-points" class="md-nav__link">
+    Group Presentation:--Team (due Tuesday, Sept 27, 23:59, presentation uploaded to gradescope)  -- 30 points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#individual-reflection-team-due-tuesday-sept-27-2359-30-points" class="md-nav__link">
+    Individual Reflection:--Team (due Tuesday, Sept 27, 23:59)  -- 30 points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-credit-team-due-tuesday-sept-27-2359-8-pts-5-of-the-overall-assignment-grade" class="md-nav__link">
+    Extra credit:--Team (due Tuesday, Sept 27, 23:59)  -- 8 pts (5% of the overall assignment grade)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    Grading
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="homework-2-learning-the-codebase">Homework 2: Learning the Codebase</h1>
+<h2 id="learning-goals">Learning Goals</h2>
+<ul>
+<li>Learn about the design and implementation of an existing software project that you will build upon this semester</li>
+<li>Collaborate with your teammates to design and implement a small feature addition or modification to that software project</li>
+<li>Practice version control and development best practices within the context of a group assignment</li>
+</ul>
+<h2 id="specification">Specification</h2>
+<p>Now that you have onboarded to 17-313, setup your development environment, and met your team, upper management has tasked you with building a graduate student admissions system over the course of the semester (described below).
+Rather than creating a new admissions system from scratch, management has decided that you and your team will repurpose and adapt an existing document management system, Teedy.
+Beyond being a pretty good document management platform, Teedy provides complex features that you expect will be useful, like tagging, workflows, and fine-grained permissions and ACLs (access control lists).</p>
+<p>Despite its considerable functionality, Teedy is still missing many of the basic features that you expect to find in the most rudimentary of admissions systems and needs changes to be better fit for purpose.
+Your goal in this homework assignment is to dig into the implementation of Teedy to better understand how it's designed and fits together, and to learn more about its associated technologies.
+To that end, your team has been tasked with implementing a small feature change or addition that requires you to make a change in each of the following layers of Teedy's stack:</p>
+<ul>
+<li>Java backend: <code>docs-core/src/main/java/com/sismics/docs</code></li>
+<li>REST middleware: <code>docs-web/src/main/java/com/sismics/docs/rest</code></li>
+<li>Angular.js frontend: <code>docs-web/src/main/webapp</code></li>
+</ul>
+<h2 id="team-and-github-repository">Team and GitHub repository.</h2>
+<p>You will be working on your team repository for this project. First,
+collectively choose a <strong>team name.</strong> Your team name should be unique,
+pronounceable, short, and something you would be proud to shout in your
+team cheer on the streets of Pittsburgh in the presence of small,
+impressionable, multi-lingual children. Then, go to the link below to
+set up your team: once you provide your team name, it will automatically create
+a repository for your team.</p>
+<p><strong>WARNING: After you join a team, you cannot change teams! Make sure
+that only one of you creates the team, and make sure that the remaining
+teammates join the right team.</strong></p>
+<p>After you have read the above warning, go here to set up your team:</p>
+<p><strong><a href="https://classroom.github.com/a/ZjoPJFMC">https://classroom.github.com/a/ZjoPJFMC</a></strong></p>
+<p>Use the team repository for all your development, and be sure to use
+good development practices, including keeping your commits cohesive and
+your commit messages informative.</p>
+<p>We will be grading you on how well you follow the process we used for HW1 and the recitation activity:
+- create issues for feature improvements or bug-fixes,
+- when creating issue, assign team members and tag with appropriate labels,
+- and create a pull request and reference the issue to merge the changes.</p>
+<p>In this project, however, you will not create an issue or a pull request in the parent repository,
+but in your team repository, like what you did in the recitation 1.
+It is not acceptable for one person to
+commit all work after synchronizing through other means. This will
+factor into your grade.</p>
+<p>The <em>code, testing, and documentation deliverables</em> below will be taken
+by snapshotting your repository at the deadline.</p>
+<h2 id="project-description">Project Description</h2>
+<p>CMU has over 7,000 graduate students.
+The university uses a software system to manage the graduate student admissions process, including collecting relevant information from applicants, accepting recommendation letters from third-parties, showing this information to the admissions committee and accepting ratings and commentary from the admissions committee to support decisions, and notifying applicants of the decision.
+This system is old, clunky, and universally disliked.</p>
+<p>You and your team are developing a new system.
+Requirements for this new system remain a bit vague, and we are looking for you to put your own expereince and creativity into developing a better solution.
+Your point of contact insists primarily that the new system needs to be "less garbage" than the current system.
+When pressed for details, she elaborates that faculty complain that the current system makes it too difficult to evaluate the applicants; students (applicants) and their letter writers complain that the system is hard to use.
+Everyone finds configuration and management difficult.</p>
+<h2 id="deadlines-and-deliverables">Deadlines and deliverables</h2>
+<p>This homework has two (2) deadlines and two (3) deliverables. The
+deliverables are described below: </p>
+<h2 id="planning-team-due-thursday-sept-22-2359-20-points"><strong>Planning---Team (due Thursday, Sept 22, 23:59) -- 20 points</strong></h2>
+<p>You must create an issue in your group's Teedy repository that:
+  - Describes the new feature (or change to an existing feature) that you will implement for this assignment.
+    The feature/change does not need to be large, but it <strong>must require code changes across the entire Teedy stack.</strong>
+    The goal of this assignment is not to maximize value for your project client but instead to learn as much as possible about the existing codebase.
+  - Roughly outlines the changes that need to be made at each level in the Teedy stack and specifies which team member(s) are responsible for implementing those changes. 
+  - <strong>If you are unsure about your planned changes, ask for feedback on your issue from a member of the course staff!</strong></p>
+<h2 id="implementation-team-due-thursday-sept-22-2359-80-points"><strong>Implementation:--Team (due Thursday, Sept 22, 23:59)  -- 80 points</strong></h2>
+<ul>
+<li>You should follow best practices for collaborative development such as using feature branches, pull requests, and code review (e.g., tackling each layer of the stack in a separate PR).  Specifically your team should collaborate on this feature by committing changes to a branch named for the feature you are implementing. </li>
+<li>Every member of your team must contribute to the implementation. One way we will evalute this is that each team member must have at least one commit as a part of the solution.
+    Failure to do so will result in a significant penalty to your grade.</li>
+<li>You must commit all of your changes to the <code>main</code> branch of your repository before the homework deadline.
+    Unlike the previous assignment, you should not submit your changes to the parent Teedy repository.</li>
+</ul>
+<h2 id="group-presentation-team-due-tuesday-sept-27-2359-presentation-uploaded-to-gradescope-30-points"><strong>Group Presentation:--Team (due Tuesday, Sept 27, 23:59, presentation uploaded to gradescope)  -- 30 points</strong></h2>
+<p>During the Week 5 recitation slot, your group will give a short 10-minute presentation describing your changes (e.g., what you changed, how you changed the code, how you tested your changes) and what you learned about the codebase.  Each team member should be prepared to describe the changes they made.  In order to make the deadline fair across all sections, the presentation should be submitted to gradescope by Tuesday Sept 27th, 11:59pm. </p>
+<h2 id="individual-reflection-team-due-tuesday-sept-27-2359-30-points"><strong>Individual Reflection:--Team (due Tuesday, Sept 27, 23:59)  -- 30 points</strong></h2>
+<p>You will answer individual reflection questions on Gradescope (HW2 Individual Reflection).  We will ask you to describe the changes that you personally made, how you made those changes, and what you would do differently if given more time.</p>
+<h2 id="extra-credit-team-due-tuesday-sept-27-2359-8-pts-5-of-the-overall-assignment-grade"><strong>Extra credit:--Team (due Tuesday, Sept 27, 23:59)  -- 8 pts (5% of the overall assignment grade)</strong></h2>
+<p>Getting to know your colleagues in a friendly context can often lead to more effective collaboration; healthy teams often get lunch together, for example.  To incentivize this, we will give your team 5% extra credit for this assignment if you meet for a team outside of a working session.  You might want to eat together, or go out for boba.  If someone on your team is not feeling well, you may also do a virtual activity such as an online gaming session (drawasaurus?) or social "zoom lunch". On the 17-313 Slack workspace, create a new <strong>private channel</strong> (name it <code>team-&lt;teamname&gt;</code>) that includes all your team members and the two TAs who are your team mentors (these are the same TAs that run your recitation---if you are unsure, ask on <code>#general</code>). Share the photo or screenshot of your team activity on the slack channel with your TA mentors to receive the 5% extra credit. You can also use this slack channel for subsequent project-team related discussions or specialized Q&amp;A with your TA mentors for the rest of the semester.</p>
+<h2 id="grading">Grading</h2>
+<p>You will be graded as a team, with an individual component. This
+homework is worth 160 points, with an additional 8 points of extra credit available. </p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>

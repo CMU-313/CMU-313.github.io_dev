@@ -1,0 +1,838 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>HW05 Quality Assurance - CMU 17-313: Foundations of Software Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#homework-5-quality-assurance-for-the-people" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CMU 17-313: Foundations of Software Engineering" class="md-header__button md-logo" aria-label="CMU 17-313: Foundations of Software Engineering" data-md-component="logo">
+      
+  <img src="../../assets/images/17313_numberbox.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CMU 17-313: Foundations of Software Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HW05 Quality Assurance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../syllabus/" class="md-tabs__link">
+      Syllabus
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../HW1/" class="md-tabs__link md-tabs__link--active">
+        Assignments
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../recitations/reci2-angularjs/" class="md-tabs__link">
+        Recitations
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CMU 17-313: Foundations of Software Engineering" class="md-nav__button md-logo" aria-label="CMU 17-313: Foundations of Software Engineering" data-md-component="logo">
+      
+  <img src="../../assets/images/17313_numberbox.png" alt="logo">
+
+    </a>
+    CMU 17-313: Foundations of Software Engineering
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Assignments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Assignments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Assignments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW1/" class="md-nav__link">
+        Homework 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW2/" class="md-nav__link">
+        Homework 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW3/" class="md-nav__link">
+        Homework 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW4/" class="md-nav__link">
+        Homework 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Homework 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Homework 5
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    Learning Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-context-and-tasks" class="md-nav__link">
+    Project Context and Tasks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-and-dynamic-analysis" class="md-nav__link">
+    Static and Dynamic Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Static and Dynamic Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starter-list-of-tools" class="md-nav__link">
+    Starter list of Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ml-model-assessment" class="md-nav__link">
+    ML Model Assessment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deadlines-and-deliverables" class="md-nav__link">
+    Deadlines and Deliverables
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HW6/" class="md-nav__link">
+        Homework 6
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Recitations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Recitations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Recitations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci2-angularjs/" class="md-nav__link">
+        Recitation 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci3-archaeology/" class="md-nav__link">
+        Recitation 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci4-dysfunction/" class="md-nav__link">
+        Recitation 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci6-midterm-review/" class="md-nav__link">
+        Recitation 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci7-machine-learning/" class="md-nav__link">
+        Recitation 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci8-static-analysis-ci/" class="md-nav__link">
+        Recitation 8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recitations/reci9-open-source/" class="md-nav__link">
+        Recitation 9
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    Learning Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-context-and-tasks" class="md-nav__link">
+    Project Context and Tasks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-and-dynamic-analysis" class="md-nav__link">
+    Static and Dynamic Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Static and Dynamic Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starter-list-of-tools" class="md-nav__link">
+    Starter list of Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ml-model-assessment" class="md-nav__link">
+    ML Model Assessment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deadlines-and-deliverables" class="md-nav__link">
+    Deadlines and Deliverables
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="homework-5-quality-assurance-for-the-people">Homework 5: Quality Assurance for the People</h1>
+<h2 id="learning-goals">Learning Goals</h2>
+<ul>
+<li>Gain hands-on experience with analysis tools, including setting up, customizing, and using them.  </li>
+<li>Practically assess and compare the costs and benefits of existing static and dynamic bug-finding tools.</li>
+<li>Develop a plan to integrate and roll out tools in development practice.</li>
+<li>Explain the predictions of a Machine Learning Model, and reason about their implications.</li>
+</ul>
+<h2 id="project-context-and-tasks">Project Context and Tasks</h2>
+<p>Quality Assurance is a critical part of software development. Although you have been testing your new graduate admissions system this whole time, you are now setting out to establish a sustained QA practice that can be used moving forward as you iterate over and continue to improve your system. Your CTO has assigned you the task of evaluating existing tools and practices beyond unit testing, and producing a report on (A) the cost/benefit tradeoffs and risks of several tools and processes and (B) how they might fit in development practice.</p>
+<h2 id="static-and-dynamic-analysis">Static and Dynamic Analysis</h2>
+<p>First, you will evaluate and choose between a set of analysis tools, integrate it into your build/deployment pipeline, and document your decisions/process by way of a design document/RFC. For the purposes of this RFC, you must identify and experiment with at least <code>N</code> potential static and dynamic analysis tools that are applicable to your system, where <code>N</code> is the size of your group. We provide a starter list below; you should include at least one static analysis and one dynamic analysis tools, and at least one tool must be taken from either a Google search or from the Awesome Static/Dynamic Analysis page (that is, cannot otherwise be listed in the bulleted list).</p>
+<p>You can create a new team repository by following the link for your team, which will clone the Teedy code automatically:</p>
+<p><a href="https://classroom.github.com/a/ZQC6b77K">Create Assignment with Github Classroom</a></p>
+<p>Apply one or more of the tools to your project. You may also apply it to one or more other programs if you wish to assess it in different contexts. Consider and experiment with the types of customization that are appropriate or necessary for this tool, both a priori (before they can be used in your project) and possibly over time. Assess the strengths and weaknesses of each tool/technique, both quantitatively and qualitatively. You might consider issues like, but not limited to: what types of problems are you hoping your tooling will catch? What types of problems does a particular tool catch? What types of customization are possible or necessary? How can/should this tool be integrated into a development process? Are there many false positives? False negatives? True positive reports about things you don't care about?</p>
+<p>The deliverable for this part, at a high level, is a Design Document/RFC that explains and justifies the tooling you propose to incorporate into your process, and how you propose to do so. This decision should be feature- and data-driven, and should consider usability and process questions like how and when the tooling will be applied, and by whom. See below for more details.</p>
+<p><strong>NOTE: you do not need to integrate ALL <code>N</code> tools into your repo, but you should integrate at least (1) tool so that it runs via CI, and have one commit on which it was run.  You should reference this commit in your design document</strong></p>
+<h3 id="starter-list-of-tools">Starter list of Tools</h3>
+<p>Teedy has a Java backend and an AngularJS (JavaScript) frontend. Below are non-exhaustive lists of analysis tools that are available for both Java and JavaScript. Others are available. <a href="https://github.com/analysis-tools-dev/static-analysis">Awesome Static Analysis page/repo</a> and <a href="https://github.com/analysis-tools-dev/dynamic-analysis/">Awesome Dynamic Analysis page/repo</a> have extensive listings of available static and dynamic analysis tools for a pretty hefty list of programming languages, including Java. Some of the tools have GitHub Actions workflows on <a href="https://github.com/marketplace?category=&amp;query=&amp;type=actions&amp;verification=">GitHub Marketplace</a>; use your Googling skills, and see what you find! </p>
+<p><strong>Java</strong></p>
+<p>Static analysis:
+- <a href="https://github.com/checkstyle/checkstyle">Checkstyle</a>, a tool for checking Java source code for adherence to a code standard.
+- <a href="https://spotbugs.github.io/">SpotBugs</a>, a fork of <a href="https://findbugs.sourceforge.net/">FindBugs</a> that can spot <a href="https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html">over 400 bug patterns</a></p>
+<p>Dynamic analysis:
+- <a href="https://pitest.org/">Pitest</a>, a <a href="https://en.wikipedia.org/wiki/Mutation_testing">mutation testing</a> system for Java.
+- <a href="https://www.yourkit.com/java/profiler/features/">YourKit</a>, commercial Java profiler (15 days trial)</p>
+<p><strong>JavaScript</strong></p>
+<ul>
+<li><a href="https://eslint.org/">eslint</a> is a widely used linter in modern JavaScript packages. </li>
+<li><a href="https://flow.org/">flow</a> is a static type checker for JavaScript.</li>
+</ul>
+<h2 id="ml-model-assessment">ML Model Assessment</h2>
+<p>In the last homework assignment, you created a Machine Learning model.  In fact, after your success with HW4, your team has started collecing data in production, and the new data for your ML service goes well beyond the data you used for testing.  Therefore, your CTO is seriously considering adding it into your product.  However, before announcing it as a feature, she wants to ensure that your team has a deep understanding of how the ML model is working, as well as that it is tested with respect to any concerns that may have surfaced previously.  For this task, your team is tasked with writing a data-driven report for your CTO. You should evaluate the model, test outcomes, present your findings, and discuss them.</p>
+<p>Your first task is to present a data-driven analysis of the predictions that your model is making.  You will do this using the LIME tool we have previously looked at in class: <a href="https://github.com/marcotcr/lime">https://github.com/marcotcr/lime</a></p>
+<p>Run this tool on your model, and collect data on how the model is making predictions. You should use this data to report on the behavior of the ML recommendation system. Here, when you run the tool, remember to use the more complete production data that your team has collected, in the place of the previous limited training data. You can find the updated data here: <a href="/assignments/ProductionData.csv.zip">Production Data</a></p>
+<p>The data-driven analysis will allow your company to ensure that the ML is working properly. However, you are also concerned with fairness.</p>
+<p>You should also include in your report a data-driven analysis of the fairness of your algorithm. To analyze the fairness, you should remember the fairness discussion we had in class, based on this tool: <a href="https://research.google.com/bigpicture/attacking-discrimination-in-ml/">ML Discrimination</a>. Then, consider two of the fairness approaches we discussed in class, and compare them. Finally, you report should include a recommendation if you want to use the ML, scrap it, or make specific improvements before rolling it out. </p>
+<p>Specifically your report should include the following information:</p>
+<ul>
+<li>Data-driven analysis of the predictions the model is making.</li>
+<li>Any concerns you have about the quality of the predictions in light of this data.</li>
+<li>Any features in the data you are concerned about from a fairness perspective. HINT: you might want to consult your last homework when considering this.</li>
+<li>A data-driven analysis of the interplay between these features and your ML model. There are various ways to do this, but a simple approach might consider the following:<ul>
+<li>Distribution of this feature in your dataset.</li>
+<li>Distribution of this feature in your accepted and rejected recommendation populations</li>
+<li>Relationship between this feature and your false positives and false negatives.</li>
+</ul>
+</li>
+<li>Based on this data, you should consider what is the fairness strategy that you are trying to achieve. You may use <strong>two of the fairness strategies</strong> we considered in class, or define your own. If you define a new fairness strategy, you should describe it, and present why you think it is a better fit than any of the existing strategies for this product.</li>
+<li>If you are not happy with the performance of the system, based on the data you have collected, you should do the following:<ul>
+<li>Report on what aspects of the system you are unhappy with</li>
+<li>Iterate your model 1 iteration, and see if you can improve its performance. Most likely, this will NOT be enough to fix it, but your goal in this assignment is to learn enough to make a reasonable estimate of the effort needed to fix the model.</li>
+<li>Make an estimate of how long it will take to bring the model up to acceptable performance. This can be a "T-Shirt" estimate (e.g., S/M/L/XL) but it should also include completion criteria. This will look like specific thresholds that your model should achieve before you would be comfortable shipping it as a part of your product.</li>
+</ul>
+</li>
+<li>At the end of this report, make a recommendation to your CTO. This recommendation should be one of the following:<ul>
+<li>It is good enough to use now, we should ship it.</li>
+<li>It is not good enough to ship, but we have a plan to improve it</li>
+<li>We don't feel comfortable shipping this feature, we should scrap it.</li>
+</ul>
+</li>
+</ul>
+<h2 id="deadlines-and-deliverables">Deadlines and Deliverables</h2>
+<p>This homework has one (1) deadline and two (2) deliverables. The deadline (<strong>Friday, Nov 18</strong>) is for all the deliverables:  the static analysis design doc, and the report on the ML model.</p>
+<p><strong>Part A: Static Analysis - Group (due Nov 18) - 50 points (50%)</strong></p>
+<p>The deliverable for this part is a Design Document/RFC that provides (1) a justified explanation for which tool(s) you think the project should use moving forward, and (2) how it shall be integrated into your process (you must recommend at least one tool, even if it's with reservations).  This latter point should address both technical (e.g., at what point in the development/deployment process shall it be integrated? What sorts of customization or configuration will you be using?) and social issues (e.g., how will you incentivize the change?), as applicable. The justification should be based on your experiences running the tools and, as much as possible, be grounded in data about, for example, tool usability, output, and customizability.</p>
+<p>Be sure the RFC also explains/justifies the alternative tools (or process options, if pertinent) that have been rejected. To receive full credit, you must consider at least <code>N</code> total tool options in your RFC, where <code>N</code> is the size of your team. The document should also contain other relevant sections for a Design Document/RFC for this type of (development process) feature. Are there open questions? Issues you consider out of scope? Drawbacks of the proposed process/tooling that you are accepting for some (good) reason? Etc. That is: make sure it's a good/complete design document!</p>
+<p><strong>NOTE: in your PDF submitted to gradescope, you should explictly reference at least one commit on which your tool has been run in your repo.</strong></p>
+<p>Submit the Design Document as a single PDF to Gradescope.</p>
+<p><strong>Part B: ML Explainability -- Group (due Nov 18) -- 50 points (50%)</strong></p>
+<p>For this deliverable, you will be collecting data, and writing a report.  The report should include the data you collect as well as your interpretation of the data.</p>
+<p>First, you should collect data by running LIME on your ML model from the last homework (use the model you have in the <code>fall-22-hw4</code> repository), with the new data.  You should present the results of this as data in your report.</p>
+<p>Then, you will interpret the data to explain why your machine learning model is making predictions. This information should include the features that provide the most predictive power.</p>
+<p>You should also evaluate your machine learning model considering fairness issues. You will evaluate the performance of your model with a specific target fairness strategy in mind, and if you are unhappy with the fairness of the model, you will come up with thresholds that you feel the model must meet before you would feel comfortable using it.</p>
+<p>Based on your findings, you should recommend one of three options. You might feel that the model is good enough to deploy as is, you might recommend specific changes before you deploy, or you might recommend it not be deployed at all.</p>
+<p>Submit this report as a PDF via Gradescope.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>
