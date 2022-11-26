@@ -4,6 +4,7 @@
 To run the built-in development server:
 
 ``` sh
+pip install -r requirements.txt
 mkdocs serve
 ```
 
